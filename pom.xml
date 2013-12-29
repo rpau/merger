@@ -50,4 +50,22 @@
 			</dependencies>
 		</profile>
 	</profiles>
+	<name>merger</name>
+	<description>Library to apply semantic merging into Java objects</description>
+	<scm>
+		<url>https://github.com/rpau/merger</url>
+		<connection>https://github.com/rpau/merger.git</connection>
+	</scm>
+	<developers>
+		<developer>
+			<id>rpau</id>
+			<name>rpau</name>
+			<email>raquelpau@gmail.com</email>
+		</developer>
+		<developer>
+			<id>acoroleu</id>
+			<name>acoroleu</name>
+			<email>acoroleu@gmail.com</email>
+		</developer>
+	</developers>
 </project>
