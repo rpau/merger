@@ -17,7 +17,7 @@ package org.walkmod.merger;
 
 import java.util.List;
 
-public class OverrideMergePolicy<T extends Mergeable> extends
+public class OverrideMergePolicy<T extends IdentificableNode> extends
 		ObjectMergePolicy<T> {
 
 	@Override

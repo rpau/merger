@@ -18,7 +18,7 @@ package org.walkmod.merger;
 import java.util.Comparator;
 import java.util.List;
 
-public abstract class ObjectMergePolicy<T extends Mergeable>
+public abstract class ObjectMergePolicy<T extends IdentificableNode>
 		implements
 			MergePolicy<T> {
 

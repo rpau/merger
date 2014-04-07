@@ -77,7 +77,7 @@ public class MergeEngine {
 		}
 		MergePolicy policy = getMergePolicy(genericClass);
 		if (policy == null) {
-			if (Mergeable.class.isAssignableFrom(genericClass)) {
+			if (IdentificableNode.class.isAssignableFrom(genericClass)) {
 				policy = defaultObjectMergePolicy;
 			} else {
 				policy = defaultTypeMergePolicy;

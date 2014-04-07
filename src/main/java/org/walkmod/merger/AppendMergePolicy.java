@@ -20,18 +20,21 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AppendMergePolicy<T extends Mergeable>
+public class AppendMergePolicy<T extends IdentificableNode>
 		extends
 			ObjectMergePolicy<T> implements MergeEngineAware {
 
 	private MergeEngine mergeConfiguration;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void apply(T localObject, T remoteObject, List<T> resultList) {
 		if (localObject == null) {
 			resultList.add(remoteObject);
 		} else {
-			localObject.merge(remoteObject, mergeConfiguration);
+			if(localObject instanceof Mergeable){
+				((Mergeable)localObject).merge(remoteObject, mergeConfiguration);
+			}
 			resultList.add(localObject);
 		}
 	}
@@ -41,6 +44,7 @@ public class AppendMergePolicy<T extends Mergeable>
 		this.mergeConfiguration = mergeConfiguration;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public MergeEngine getMergeEngine() {
 		return mergeConfiguration;
@@ -51,7 +55,9 @@ public class AppendMergePolicy<T extends Mergeable>
 		if (localObject == null) {
 			return remoteObject;
 		} else {
-			localObject.merge(remoteObject, mergeConfiguration);
+			if(localObject instanceof Mergeable){
+				((Mergeable)localObject).merge(remoteObject, mergeConfiguration);
+			}
 			return localObject;
 		}
 	}
